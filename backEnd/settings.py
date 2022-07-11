@@ -16,7 +16,7 @@ SECRET_KEY = 'django-insecure-=nbr13s$t_ty9r0s#1csz!jak@5hv@ll5w@aiw3=8#^mie18*t
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1:8000', 'https://foodie-back-end.herokuapp.com']
+ALLOWED_HOSTS = ['foodie-back-end.herokuapp.com', '127.0.0.1:8000']
 
 
 # Application definition
@@ -49,6 +49,51 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+CORS_ALLOWED_ORIGINS = [
+    'http://127.0.0.1:8081'
+]
+
+CORS_ORIGIN_ALLOW_ALL = True
+
+REST_FRAMEWORK = {
+
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.AllowAny'
+    ],
+
+}
+
+    # 'DEFAULT_AUTHENTICATION_CLASSES': [
+    #     'rest_framework.authentication.TokenAuthentication',
+    #     'knox.auth.TokenAuthentication'
+    # ],
+
+    # 'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema',
+
+"""    
+    'DEFAULT_THROTTLE_CLASSES': [
+        'rest_framework.throttling.AnonRateThrottle',
+        'rest_framework.throttling.UserRateThrottle'
+    ]
+    'DEFAULT_THROTTLE_RATES': {
+        'anon': '50/hour',
+        'plans': '50/hour',
+        'investment': '50/hour',
+        'service': '50/hour',
+    }
+"""
+
+# AUTHENTICATION_BACKENDS = (
+#     # Needed to login by user in Django Admin
+#     # Regardless of Allauth
+#     'django.contrib.auth.backends.ModelBackend',
+
+#     # Allauth Specific authentication methods, 
+#     # such as login by email
+#     'allauth.account.auth_backends.AuthenticationBackend'
+# )
+
 
 ROOT_URLCONF = 'backEnd.urls'
 

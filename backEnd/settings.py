@@ -16,7 +16,7 @@ SECRET_KEY = 'django-insecure-=nbr13s$t_ty9r0s#1csz!jak@5hv@ll5w@aiw3=8#^mie18*t
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['foodie-back-end.herokuapp.com', '127.0.0.1:8000']
+ALLOWED_HOSTS = ['foodie-back-end.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
@@ -61,6 +61,11 @@ REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.AllowAny'
     ],
+
+    'DEFAULT_PAGINATION_CLASS': 
+        'rest_framework.pagination.LimitOffsetPagination',
+        'PAGE_SIZE': 10
+
 
 }
 

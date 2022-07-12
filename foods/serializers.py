@@ -7,14 +7,21 @@ from .models import (
 
 
 class CategorySerializer(serializers.ModelSerializer):
-	
+
+	dishes = serializers.SlugRelatedField(
+		many=True,
+		read_only=True,
+		slug_field='name'
+	)
+
 	class Meta:
 		model = Category
-		fields = "__all__"
+		fields = ['name', 'image', 'dishes']
 
 
-class DishesSerializer(serializers.ModelSerializer):
+class DishesSerializer(serializers.HyperlinkedModelSerializer):
 	
 	class Meta:
 		model = Dish
-		fields = "__all__"
+		fields = ['restaurant', 'category', 'name', 'price', 'image',
+				'timeStamp', 'date_updated']

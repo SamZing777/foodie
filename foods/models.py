@@ -16,8 +16,9 @@ class Category(models.Model):
 
 
 class Dish(models.Model):
-	restaurant = models.ManyToManyField(Restaurant)
-	category = models.ForeignKey(Category, on_delete=models.CASCADE)
+	restaurant = models.ManyToManyField(Restaurant, related_name='location')
+	category = models.ForeignKey(Category, on_delete=models.CASCADE, 
+								related_name='dishes')
 	name = models.CharField(max_length=100)
 	price = models.DecimalField(max_digits=8, decimal_places=2)
 	image = models.ImageField(upload_to='foods')

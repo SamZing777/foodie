@@ -7,7 +7,7 @@ from .models import (
 
 
 class DishAdmin(admin.ModelAdmin):
-	list_display = ['name', 'price', 'price']
+	list_display = ['name', 'price']
 
 
 admin.site.register(Category)
